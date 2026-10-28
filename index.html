@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новый год</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="snowfall"></div>
+  <main class="welcome-screen">
+    <h1>С Новым Годом!</h1>
+    <p>Введите код из сообщения.</p>
+    <form id="code-form" class="code-form">
+      <input type="text" id="code-input" placeholder="Ваш код" inputmode="numeric" autocomplete="off" required>
+      <button type="submit">Открыть</button>
+    </form>
+    <p id="error-message" class="error-message"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

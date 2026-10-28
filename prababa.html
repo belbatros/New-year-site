@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дорогой Прабабушке</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="snowfall"></div>
+
+  <div class="envelope-wrapper" id="envelope">
+    <div class="envelope" tabindex="0" role="button" aria-label="Открыть письмо">
+      <div class="flap"></div>
+      <div class="body"></div>
+      <div class="seal">❄</div>
+    </div>
+    <p class="hint">Нажмите, чтобы открыть</p>
+  </div>
+
+  <main class="letter" id="letter">
+    <h1>Дорогая Бабуля!</h1>
+    <p>Поздравляю тебя с Новым Годом!</p>
+    <p>Пусть наступающий год подарит тебе здоровье, душевный покой и много тёплых мгновений.</p>
+    <p>Желаю тебе как можно чаще видеть улыбки близких и чувствовать их заботу каждый день.</p>
+    <p>Пусть в твоём доме всегда будет уют, любовь и радость, а каждое утро начинается с хорошего настроения.</p>
+    <p>Спасибо тебе за твою доброту.</p>
+    <p class="signature">С любовью, твой правнук.</p>
+    <a href="index.html" class="back-link">← Вернуться к вводу кода</a>
+  </main>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const envelopeBox = document.querySelector('.envelope');
+    const letter = document.getElementById('letter');
+
+    function openLetter() {
+      envelope.classList.add('is-opening');
+      letter.classList.add('is-visible');
+      setTimeout(() => { envelope.style.display = 'none'; }, 900);
+    }
+
+    envelopeBox.addEventListener('click', openLetter);
+    envelopeBox.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLetter();
+      }
+    });
+  </script>
+</body>
+</html>
