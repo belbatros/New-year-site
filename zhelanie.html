@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Загадай желание</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="snowfall"></div>
+
+  <main class="wish-screen">
+    <h1>Загадай желание</h1>
+    <p class="wish-hint" id="wish-hint">Нажми на свечку, чтобы задуть её</p>
+
+    <div class="candle-scene" id="candle-scene" role="button" tabindex="0" aria-label="Задуть свечу">
+      <div class="glow" id="glow"></div>
+      <div class="flame" id="flame"></div>
+      <div class="smoke" id="smoke"><span></span><span></span><span></span></div>
+      <div class="wick"></div>
+      <div class="candle"></div>
+    </div>
+
+    <p class="wish-done" id="wish-done">✨ Желание загадано ✨</p>
+
+    <a href="index.html" class="back-link">← Вернуться на главную</a>
+  </main>
+
+  <script>
+    const scene = document.getElementById('candle-scene');
+    const flame = document.getElementById('flame');
+    const glow = document.getElementById('glow');
+    const smoke = document.getElementById('smoke');
+    const hint = document.getElementById('wish-hint');
+    const done = document.getElementById('wish-done');
+
+    let blown = false;
+
+    function blowOut() {
+      if (blown) return;
+      blown = true;
+
+      flame.classList.add('is-out');
+      glow.classList.add('is-out');
+      smoke.classList.add('is-visible');
+      hint.style.display = 'none';
+      done.classList.add('is-visible');
+    }
+
+    scene.addEventListener('click', blowOut);
+    scene.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        blowOut();
+      }
+    });
+  </script>
+</body>
+</html>
